@@ -23,15 +23,20 @@ function App() {
     },
   ];
   const [players, setPlayers] = useState(data);
-  const [playerPosition, setPosition] = useState("");
+  const [playerPosition, setPosition] = useState('');
+  const [flag, setFlag] = useState('false');
+  
   const addPlayer = (newPlayer) => {
     setPlayers((prevplayers) => {
       return [...prevplayers, newPlayer];
     });
   };
+  
   function filterPlayer(posi) {
     setPosition(posi);
+    setFlag('true');
   }
+
   //const dup = players.filter((player) => player.position === playerPosition);
 
   return (
@@ -41,9 +46,11 @@ function App() {
       <Filter onSelectDD={filterPlayer} />
       {/* <Player info={players} /> */}
 
-      {players.map((playerData, index) => {
-        return <Player info={playerData} />;
-      })}
+     
+       {
+            flag ==='true' ? <p>{ players.map((playerData) => (playerData.position === playerPosition ? (<Player info={playerData}/>) : ''))}</p> : <p>{ players.map((playerData, index) => { return <Player info={playerData} />;})} </p>
+        }
+        
     </div>
   );
 }
