@@ -9,6 +9,7 @@ const Filter = (props) => {
       <div className="position-filter__control">
         <label>Filter Position</label>
         <select onChange={handleDropDown}>
+          <option value="All">Diplay All Position</option>
           <option value="Center">Center</option>
           <option value="Guard">Guard</option>
           <option value="Forward">Forward</option>

@@ -34,7 +34,7 @@ function App() {
   
   function filterPlayer(posi) {
     setPosition(posi);
-    setFlag('true');
+    posi === "All" ? setFlag('false') : setFlag('true');
   }
 
   //const dup = players.filter((player) => player.position === playerPosition);
@@ -48,7 +48,10 @@ function App() {
 
      
        {
-            flag ==='true' ? <p>{ players.map((playerData) => (playerData.position === playerPosition ? (<Player info={playerData}/>) : ''))}</p> : <p>{ players.map((playerData, index) => { return <Player info={playerData} />;})} </p>
+            flag ==='true' ? 
+            <p>{ players.map((playerData) => (playerData.position === playerPosition 
+              ? (<Player info={playerData}/>) : ''))}</p> 
+              : <p>{ players.map((playerData, index) => { return <Player info={playerData} />;})} </p>
         }
         
     </div>
